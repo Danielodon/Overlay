@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Admin</title>
+    <script src="/socket.io/socket.io.js"></script>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #222;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        button {
+            padding: 10px 20px;
+            background: #00aaff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        button:hover {
+            background: #0088cc;
+        }
+    </style>
+</head>
+<body>
+    <h2>Admin: Nächste Frage</h2>
+    <button onclick="nextQuestion()">Nächste Frage</button>
+
+    <script>
+        const socket = io();
+        function nextQuestion() {
+            socket.emit("nextQuestion");
+        }
+    </script>
+</body>
+</html>
